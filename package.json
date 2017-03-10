@@ -12,7 +12,7 @@
   },
   "main": "./lib/apm.js",
   "bin": {
-    "apm": "./bin/apm"
+    "apm": "./bin/tapm"
   },
   "scripts": {
     "build": "node script/check-version.js && grunt",
