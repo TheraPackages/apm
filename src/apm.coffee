@@ -39,7 +39,7 @@ module.exports =
         child_process.exec 'mdfind "kMDItemCFBundleIdentifier == \'com.github.atom\'"', (error, stdout='', stderr) ->
           [appLocation] = stdout.split('\n') unless error
           appLocation = '/Applications/Thera.app' unless appLocation
-          callback("#{appLocation}/Contents/Resources/app")
+          callback("#{appLocation}/Contents/Resources/attach-resources")
       when 'linux'
         appLocation = '/usr/local/share/atom/resources/app'
         unless fs.existsSync(appLocation)
