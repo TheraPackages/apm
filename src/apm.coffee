@@ -26,8 +26,10 @@ module.exports =
 
     apmFolder = path.resolve(__dirname, '..')
     appFolder = path.dirname(apmFolder)
-    if path.basename(apmFolder) is 'apm' and path.basename(appFolder) is 'app' and fs.existsSync(appFolder)
-      return process.nextTick -> callback(appFolder)
+    if path.basename(apmFolder) is 'apm' and path.basename(appFolder) is 'app'
+      asarPath = "#{appFolder}.asar"
+      if fs.existsSync(asarPath)
+        return process.nextTick -> callback(asarPath)
 
     apmFolder = path.resolve(__dirname, '..', '..', '..')
     appFolder = path.dirname(apmFolder)
