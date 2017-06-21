@@ -38,10 +38,10 @@ module.exports =
 
     switch process.platform
       when 'darwin'
-        child_process.exec 'mdfind "kMDItemCFBundleIdentifier == \'com.github.atom\'"', (error, stdout='', stderr) ->
+        child_process.exec 'mdfind "kMDItemCFBundleIdentifier == \'com.tmall.thera\'"', (error, stdout='', stderr) ->
           [appLocation] = stdout.split('\n') unless error
           appLocation = '/Applications/Thera.app' unless appLocation
-          callback("#{appLocation}/Contents/Resources/attach-resources")
+          callback("#{appLocation}/Contents/Resources/app")
       when 'linux'
         appLocation = '/usr/local/share/atom/resources/app'
         unless fs.existsSync(appLocation)
