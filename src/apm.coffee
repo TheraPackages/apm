@@ -37,6 +37,8 @@ module.exports =
       return process.nextTick -> callback(appFolder)
 
     switch process.platform
+      when 'win32'
+        callback(path.join(process.execPath, '..', 'resources', 'app'))
       when 'darwin'
         child_process.exec 'mdfind "kMDItemCFBundleIdentifier == \'com.tmall.thera\'"', (error, stdout='', stderr) ->
           [appLocation] = stdout.split('\n') unless error
